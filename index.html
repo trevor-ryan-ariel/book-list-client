@@ -11,15 +11,20 @@
     <title>Book List</title>
 </head>
 <body>
-    <h1>Book List</h1>
-        <section>
+    <section class="bookshelf container">
+            <h1>Book List</h1>
             <ul id="book-list">
 
             </ul>
             <h2 id="book-count"></h2>
-        </section>
+    </section>
+    <section class="error-view container">
+        <h1 id="error-message">Errors</h1>
+    </section>
     <script>
       var __API_URL__ = 'http://localhost:3000/api/v1/books'
+
+      $('.error-view').hide();
 
       $.getJSON(__API_URL__).then(result => {
           //console.log(result)
@@ -28,6 +33,21 @@
           })
           $('#book-list').text('Total Books: ' + result.length);
       });
+
+      var errorView = {}
+
+      errorView.initErrorPage = (err) => {
+        $('.container').hide();
+        $('.error-view').show();
+        $('#error-message').empty();
+
+        err = {status: 'lousy', statusText: 'not good'};
+
+        const template = Handlebars.compile($('#error-template').text());
+
+        $('#error-message').append(template(err));
+
+          }
     </script>
 </body>
 </html>
