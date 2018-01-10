@@ -2,28 +2,27 @@
 // $(document).ready = () => {      can use if you want
 // }
 
+page('/*', (ctx, next)) => {
+    $('.page').hide();
+    next();
+};
+
 page('/', () => {
-  $('.page').hide()
   app.Book.fetchAll().then(books => {
     app.bookListPage.initIndexView(books)
   })
 })
 
 page('/books/:id', (ctx) => {
-  $('.page').hide()
-
-  app.Book.fetchOne(ctx.params.id).then(book => console.log(book))
-
-  $('#book-detail-page').show()
-})
+    app.Book.fetchOne(ctx.params.id).then(book => console.log(book))
+    app.bookDetailsPage.init(book)
+  })
 
 page('/books/create', () => {
-  $('.page').hide()
   $('#book-create-page').show()
 })
 
 page('error', () => {
-  $('.page').hide()
   $('#error-page').show()
 })
 
