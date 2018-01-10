@@ -3,28 +3,28 @@
 // }
 
 page('/', () => {
-    $('.page').hide()
-    app.Book.fetchAll().then(books => {
-        app.bookListPage.initIndexView(books)
-    })
+  $('.page').hide()
+  app.Book.fetchAll().then(books => {
+    app.bookListPage.initIndexView(books)
+  })
 })
 
 page('/books/:id', (ctx) => {
-    $('.page').hide()
+  $('.page').hide()
 
-    app.Book.fetchOne(ctx.params.id).then(book => console.log(book))
-    
-    $('#book-detail-page').show()
+  app.Book.fetchOne(ctx.params.id).then(book => console.log(book))
+
+  $('#book-detail-page').show()
 })
 
 page('/books/create', () => {
-    $('.page').hide()
-    $('#book-create-page').show()
+  $('.page').hide()
+  $('#book-create-page').show()
 })
 
 page('error', () => {
-    $('.page').hide()
-    $('#error-page').show()
+  $('.page').hide()
+  $('#error-page').show()
 })
 
 page.start();

@@ -3,21 +3,21 @@ var app = app || {};
 
 (module => {
 
-    const bookListPage = {}
+  const bookListPage = {}
 
-    bookListPage.initIndexView = (books) => {
+  bookListPage.initIndexView = (books) => {
 
-        books.forEach(book => {
-            $('#book-list').append(`<li data-id="${book.book_id}">${book.title}</li>`)
-        })
+    books.forEach(book => {
+      $('#book-list').append(`<li data-id="${book.book_id}">${book.title}</li>`)
+    })
 
-        $('#book-list').on('click', 'li', (event) => {
-            $(event.target).data('id')
-        page('/books/' + id)
-        })
+    $('#book-list').on('click', 'li', (event) => {
+      $(event.target).data('id')
+      page('/books/' + id)
+    })
 
-        $('$book-list-page').show()
-    }
+    $('$book-list-page').show()
+  }
 
-    module.bookListPage = bookListPage
+  module.bookListPage = bookListPage
 })(app)
