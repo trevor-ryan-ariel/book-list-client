@@ -4,11 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <title>Book List</title>
+    <script type="text/x-handlebars-template" id="error-template">
+        <h3>Danger Will Robinson!</h3>
+        <p>{{status}} : {{statusText}}</p>
+    </script>
 </head>
 <body>
-    <h1>What Up!</h1>
-        <p>Some text</p>
-    
+    <section class="bookshelf container">
+            <h1>Book List</h1>
+            <ul id="book-list">
+
+            </ul>
+            <h2 id="book-count"></h2>
+    </section>
+    <section class="error-view container">
+        <h1 id="error-message">Errors</h1>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script>
+      var __API_URL__ = 'http://localhost:3000/api/v1/books'
+
+      $('.error-view').hide();
+
+      $.getJSON(__API_URL__).then(result => {
+          //console.log(result)
+          result.forEach(viewBooks => {
+              $('#book-list').append(`<li>${viewBooks.title}</li>`)
+          })
+          $('#book-list').text('Total Books: ' + result.length);
+      });
+
+      var errorView = {}
+
+      errorView.initErrorPage = (err) => {
+        $('.container').hide();
+        $('.error-view').show();
+        $('#error-message').empty();
+
+        err = {status: 'lousy', statusText: 'not good'};
+
+        const template = Handlebars.compile($('#error-template').text());
+
+        $('#error-message').append(template(err));
+
+          }
+    </script>
 </body>
 </html>
