@@ -1,14 +1,57 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!-- <script>Handlebars Template</script> -->
+    <title>Book List</title>
 </head>
+
 <body>
-    <h1>What Up!</h1>
-        <p>Some text</p>
+    <h1>Probably a book title</h1>
+        <p>Some text about a book</p>
     
+    <section class="bookshelf container">
+        <ul id="book-list">
+            <!-- books go here -->
+        </ul>
+
+        <h2 id="book-count"></h2> <!-- stretch goal -->
+    </section>
+
+    <section class="error-view container">
+        <h1 id="error-message">ERROR!</h1>
+    </section>
+
+    <script>
+        var __API_URL__ = 'http://localhost:3000/api/v1/books'
+        $('.error-view').hide()
+
+        $.getJSON(_API_URL__).then(books => {
+            // console.log(results)
+            books.forEach(bookData => {
+                $('#book-list').append(`<li>${bookData.title};${bookData.author}</li>`)
+            })
+
+            $('#book-count').append(books.length) 
+        })
+
+        var errorView = {}
+        errorView.initErrorPage = (err) => {
+            // do error stuff
+            $('.contiainer').hide()
+            $('.error-view').show()
+            $('#error-message').empty()
+
+            // err = {status: 'lousy', statusText: 'not good'}
+
+            const template = Handlebars.compile($('#error-template').text())
+            $('#error-message').append(template(err))
+            // console.log(error.status)
+        }
+
+    </script>
 </body>
 </html>
