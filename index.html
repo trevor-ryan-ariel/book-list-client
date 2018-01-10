@@ -9,6 +9,10 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
     <title>Book List</title>
+    <script type="text/x-handlebars-template" id="error-template">
+        <h3>Danger Will Robinson!</h3>
+        <p>{{status}} : {{statusText}}</p>
+    </script>
 </head>
 <body>
     <section class="bookshelf container">
@@ -21,6 +25,7 @@
     <section class="error-view container">
         <h1 id="error-message">Errors</h1>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script>
       var __API_URL__ = 'http://localhost:3000/api/v1/books'
 
