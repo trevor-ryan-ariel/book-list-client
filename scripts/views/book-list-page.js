@@ -12,11 +12,11 @@ var app = app || {};
     })
 
     $('#book-list').on('click', 'li', (event) => {
-      $(event.target).data('id')
+      const id = $(event.target).data('id')
       page('/books/' + id)
     })
 
-    $('$book-list-page').show()
+    $('#book-list-page').show()
   }
 
   module.bookListPage = bookListPage

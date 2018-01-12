@@ -3,11 +3,11 @@
 
 var app = app || {};
 
-(modules => {
-    
+(module => {
+
   //const __API_URL__ = 'https://td-aa-rj-booklist.herokuapp.com'
 
-  const __API_URL__ = 'http//localhost:3000'
+  const __API_URL__ = 'http://localhost:3000/api/v1/books'
 
   function Book() {
 

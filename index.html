@@ -15,10 +15,14 @@
     </script>
 </head>
 <body>
-    <!-- from class lecture -->
-<ul id="book-list">books go here</ul>
 
-    <section id="book-list-page" class="page">book list</section>
+
+    <section id="book-list-page" class="page">
+        <h1>Book List</h1>
+        <ul id="book-list">
+        </ul>
+            <h2 id="book-count"></h2>
+    </section>
     <section id="book-detail-page" class="page">book detail</section>
     <p id="book-title"></p>
     <p id="book-author"></p>
@@ -26,13 +30,6 @@
     <section id="error-page" class="page">error</section>
 <!-- end class lecture -->
 
-    <section class="bookshelf container">
-            <h1>Book List</h1>
-            <ul id="book-list">
-
-            </ul>
-            <h2 id="book-count"></h2>
-    </section>
     <section class="error-view container">
         <h1 id="error-message">Errors</h1>
     </section>
@@ -42,13 +39,13 @@
 
       $('.error-view').hide();
 
-      $.getJSON(__API_URL__).then(result => {
-          //console.log(result)
-          result.forEach(viewBooks => {
-              $('#book-list').append(`<li>${viewBooks.title}</li>`)
-          })
-          $('#book-list').text('Total Books: ' + result.length);
-      });
+    //   $.getJSON(__API_URL__).then(result => {
+    //       console.log(result)
+    //       result.forEach(viewBooks => {
+    //           $('#book-list').append(`<li>${viewBooks.title}</li>`)
+    //       })
+    //       $('#book-list').text('Total Books: ' + result.length);
+    //   });
 
       var errorView = {}
 
@@ -65,12 +62,14 @@
 
           }
     </script>
-    <!-- handlebars -->
-    <!-- jquery -->
-    <!-- page.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="scripts/views/book-list-page.js"></script>
+    <script src="scripts/views/book-detail-page.js"></script>
     <!-- scripts/views.book-list-page       must be listed before routes -->
-    <!-- scripts.views.book.js -->
+    <script src="scripts/models/book.js"></script>
     <!-- scripts/views/book-detail-page.js -->
-    <!-- scripts/controllers/routes.js -->
+    <script src="scripts/controlers/routes.js"></script>
 </body>
 </html>
