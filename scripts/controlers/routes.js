@@ -2,10 +2,10 @@
 // $(document).ready = () => {      can use if you want
 // }
 
-page('/*', (ctx, next)) => {
-    $('.page').hide();
-    next();
-};
+page('/*', (ctx, next) => {
+  $('.page').hide();
+  next();
+});
 
 page('/', () => {
   app.Book.fetchAll().then(books => {
@@ -13,13 +13,13 @@ page('/', () => {
   })
 })
 
-page('/books/:id', (ctx) => {
-    app.Book.fetchOne(ctx.params.id).then(book => console.log(book))
-    app.bookDetailsPage.init(book)
-  })
+page('/books/new', () => {
+  app.bookCreatePage.init()
+})
 
-page('/books/create', () => {
-  $('#book-create-page').show()
+page('/books/:id', (ctx) => {
+  app.Book.fetchOne(ctx.params.id).then(book =>
+    app.bookDetailsPage.init(book))
 })
 
 page('error', () => {

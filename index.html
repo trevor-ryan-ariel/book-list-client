@@ -15,62 +15,53 @@
     </script>
 </head>
 <body>
-    <!-- from class lecture -->
-<ul id="book-list">books go here</ul>
 
-    <section id="book-list-page" class="page">book list</section>
-    <section id="book-detail-page" class="page">book detail</section>
+    <nav>
+        <ul id="nav">
+            <li>
+                <a href="/"> Book List Home</a>
+            </li>
+            <li>
+                <a href="/books/new">Add a Book</a>
+            </li>
+        </ul>
+    </nav>
+
+<section id="book-list-page" class="page">
+        <h1>Book List</h1>
+        <ul id="book-list">
+        </ul>
+        <h2 id="book-count"></h2>
+</section>
+<section id="book-detail-page" class="page">Book Detail
     <p id="book-title"></p>
     <p id="book-author"></p>
-    <section id="book-form-page" class="page">book form</section>
-    <section id="error-page" class="page">error</section>
-<!-- end class lecture -->
+</section>
 
-    <section class="bookshelf container">
-            <h1>Book List</h1>
-            <ul id="book-list">
+<section id="book-create-page" class="page">Add a Book
+    <form id="book-create">
+        <ul>
+            <li><input id="create-title" type="text" placeholder="Title" required></li>
+            <li><input id="create-author" type="text" placeholder="Author" required></li>
+            <li><input id="create-url" type="text" placeholder="Image Url" required></li>
+            <li><input id="create-isbn" type="text" placeholder="ISBN" required></li>
+            <li><textarea id="create-isbn" type="text" placeholder="Description" required></textarea></li>
+            <li><input id="create-submit" type="submit" value="Submit"></li>
+        </ul>  
+    </form>
+</section>
 
-            </ul>
-            <h2 id="book-count"></h2>
-    </section>
-    <section class="error-view container">
-        <h1 id="error-message">Errors</h1>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script>
-      var __API_URL__ = 'http://localhost:3000/api/v1/books'
+<section id="error-page" class="page">
+    <h1 id="error-message">Errors</h1>
+</section>
 
-      $('.error-view').hide();
-
-      $.getJSON(__API_URL__).then(result => {
-          //console.log(result)
-          result.forEach(viewBooks => {
-              $('#book-list').append(`<li>${viewBooks.title}</li>`)
-          })
-          $('#book-list').text('Total Books: ' + result.length);
-      });
-
-      var errorView = {}
-
-      errorView.initErrorPage = (err) => {
-        $('.container').hide();
-        $('.error-view').show();
-        $('#error-message').empty();
-
-        err = {status: 'lousy', statusText: 'not good'};
-
-        const template = Handlebars.compile($('#error-template').text());
-
-        $('#error-message').append(template(err));
-
-          }
-    </script>
-    <!-- handlebars -->
-    <!-- jquery -->
-    <!-- page.js -->
-    <!-- scripts/views.book-list-page       must be listed before routes -->
-    <!-- scripts.views.book.js -->
-    <!-- scripts/views/book-detail-page.js -->
-    <!-- scripts/controllers/routes.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="scripts/views/book-list-page.js"></script>
+    <script src="scripts/views/book-detail-page.js"></script>
+    <script src="scripts/views/book-create-page.js"></script>
+    <script src="scripts/models/book.js"></script>
+    <script src="scripts/controlers/routes.js"></script>
 </body>
 </html>

@@ -6,17 +6,18 @@ var app = app || {};
   const bookListPage = {}
 
   bookListPage.initIndexView = (books) => {
-
+    $('#book-list').empty();
     books.forEach(book => {
-      $('#book-list').append(`<li data-id="${book.book_id}">${book.title}</li>`)
+      $('#book-list').append(`<li data-id="${book.book_id}">${book.title}</li> <li><img src="${book.image_url}">`)
     })
+    $('#book-count').text('Total Books: ' + books.length);
 
     $('#book-list').on('click', 'li', (event) => {
-      $(event.target).data('id')
+      const id = $(event.target).data('id')
       page('/books/' + id)
-    })
 
-    $('$book-list-page').show()
+    })
+    $('#book-list-page').show()
   }
 
   module.bookListPage = bookListPage
