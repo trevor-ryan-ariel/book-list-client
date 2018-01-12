@@ -16,60 +16,39 @@
 </head>
 <body>
 
-
-    <section id="book-list-page" class="page">
+<section id="book-list-page" class="page">
         <h1>Book List</h1>
         <ul id="book-list">
         </ul>
-            <h2 id="book-count"></h2>
-    </section>
-    <section id="book-detail-page" class="page">book detail</section>
+        <h2 id="book-count"></h2>
+</section>
+<section id="book-detail-page" class="page">Book Detail
     <p id="book-title"></p>
     <p id="book-author"></p>
-    <section id="book-form-page" class="page">book form</section>
-    <section id="error-page" class="page">error</section>
-<!-- end class lecture -->
+</section>
 
-    <section class="error-view container">
-        <h1 id="error-message">Errors</h1>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script>
-      var __API_URL__ = 'http://localhost:3000/api/v1/books'
+<section id="book-create-page" class="page">Add a Book
+    <form id="book-create">
+        <input id="create-title" type="text" placeholder="Title" required>
+        <input id="create-author" type="text" placeholder="Author" required>
+        <input id="create-url" type="text" placeholder="Image Url" required>
+        <input id="create-isbn" type="text" placeholder="ISBN" required>
+        <textarea id="create-isbn" type="text" placeholder="Description" required></textarea>
+        <input id="create-submit" type="submit" value="Submit">
+    </form>
+</section>
 
-      $('.error-view').hide();
+<section id="error-page" class="page">
+    <h1 id="error-message">Errors</h1>
+</section>
 
-    //   $.getJSON(__API_URL__).then(result => {
-    //       console.log(result)
-    //       result.forEach(viewBooks => {
-    //           $('#book-list').append(`<li>${viewBooks.title}</li>`)
-    //       })
-    //       $('#book-list').text('Total Books: ' + result.length);
-    //   });
-
-      var errorView = {}
-
-      errorView.initErrorPage = (err) => {
-        $('.container').hide();
-        $('.error-view').show();
-        $('#error-message').empty();
-
-        err = {status: 'lousy', statusText: 'not good'};
-
-        const template = Handlebars.compile($('#error-template').text());
-
-        $('#error-message').append(template(err));
-
-          }
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="scripts/views/book-list-page.js"></script>
     <script src="scripts/views/book-detail-page.js"></script>
-    <!-- scripts/views.book-list-page       must be listed before routes -->
+    <script src="scripts/views/book-create-page.js"></script>
     <script src="scripts/models/book.js"></script>
-    <!-- scripts/views/book-detail-page.js -->
     <script src="scripts/controlers/routes.js"></script>
 </body>
 </html>

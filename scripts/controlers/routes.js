@@ -13,14 +13,14 @@ page('/', () => {
   })
 })
 
+page('/books/new', () => {
+  app.bookCreatePage.init()
+})
+
 page('/books/:id', (ctx) => {
   app.Book.fetchOne(ctx.params.id).then(book =>
     app.bookDetailsPage.init(book))
 })
-
-page('/books/new', () => {
-  app.bookCreateView.init()
-});
 
 page('error', () => {
   $('#error-page').show()
