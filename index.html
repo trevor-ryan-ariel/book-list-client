@@ -16,6 +16,17 @@
 </head>
 <body>
 
+    <nav>
+        <ul id="nav">
+            <li>
+                <a href="/"> Book List Home</a>
+            </li>
+            <li>
+                <a href="/books/new">Add a Book</a>
+            </li>
+        </ul>
+    </nav>
+
 <section id="book-list-page" class="page">
         <h1>Book List</h1>
         <ul id="book-list">
@@ -29,12 +40,14 @@
 
 <section id="book-create-page" class="page">Add a Book
     <form id="book-create">
-        <input id="create-title" type="text" placeholder="Title" required>
-        <input id="create-author" type="text" placeholder="Author" required>
-        <input id="create-url" type="text" placeholder="Image Url" required>
-        <input id="create-isbn" type="text" placeholder="ISBN" required>
-        <textarea id="create-isbn" type="text" placeholder="Description" required></textarea>
-        <input id="create-submit" type="submit" value="Submit">
+        <ul>
+            <li><input id="create-title" type="text" placeholder="Title" required></li>
+            <li><input id="create-author" type="text" placeholder="Author" required></li>
+            <li><input id="create-url" type="text" placeholder="Image Url" required></li>
+            <li><input id="create-isbn" type="text" placeholder="ISBN" required></li>
+            <li><textarea id="create-isbn" type="text" placeholder="Description" required></textarea></li>
+            <li><input id="create-submit" type="submit" value="Submit"></li>
+        </ul>  
     </form>
 </section>
 
