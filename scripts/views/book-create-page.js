@@ -9,6 +9,9 @@ var app = app || {};
   bookCreatePage.init = () => {
     $view.show();
   }
+
+  $('#book-create').on('click', app.Book.create)
+
   module.bookCreatePage = bookCreatePage
 
 })(app)
