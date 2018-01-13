@@ -28,7 +28,6 @@ var app = app || {};
       description: $('#create-description').val()
     })
     event.preventDefault();
-    console.log('a book', addBook)
     return $.post(__API_URL__, addBook).catch(err => console.log(err));
   }
 

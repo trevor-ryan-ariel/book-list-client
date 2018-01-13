@@ -8,7 +8,7 @@ var app = app || {};
   bookListPage.initIndexView = (books) => {
     $('#book-list').empty();
     books.forEach(book => {
-      $('#book-list').append(`<li data-id="${book.book_id}">${book.title}</li> <li><img src="${book.image_url}">`)
+      $('#book-list').append(`<li data-id="${book.book_id}">${book.title} by ${book.author}</li> <li><img src="${book.image_url}">`)
     })
     $('#book-count').text('Total Books: ' + books.length);
 
