@@ -1,0 +1,20 @@
+.icon-menu {
+    font-size: 3em;
+    float: right;
+}
+
+.main-nav {
+    height: 50px;
+    background: gray;
+
+}
+
+.main-nav ul {
+    display: none;
+    padding: 0;
+    clear: both;
+}
+
+.main-nav :hover ul{
+    display: inline-block;
+}

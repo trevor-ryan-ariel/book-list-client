@@ -1,0 +1,19 @@
+#book-list div {
+    width: 90%;
+    margin: auto;
+    background: lightgray;
+}
+
+#book-list img {
+    margin: auto;
+    width: 80%;
+}
+
+#book-list p {
+    width: 80%;
+    height: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    display: block;
+}

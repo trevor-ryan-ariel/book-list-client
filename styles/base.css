@@ -1,0 +1,17 @@
+* {
+    font-family: Century, sans-serif;
+}
+
+.icon-menu :before {
+    content: "\e9bd";
+}
+
+ul {
+    list-style: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
