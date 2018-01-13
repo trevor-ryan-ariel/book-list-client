@@ -41,14 +41,15 @@
     <p id="book-description"></p>
 </section>
 
-<section id="book-create-page" class="page">Add a Book
+<section id="book-create-page" class="page">
+    <h2>Add a Book</h2>
     <form id="book-create">
         <ul>
             <li><input id="create-title" type="text" placeholder="Title" required></li>
             <li><input id="create-author" type="text" placeholder="Author" required></li>
             <li><input id="create-url" type="text" placeholder="Image Url" required></li>
             <li><input id="create-isbn" type="text" placeholder="ISBN" required></li>
-            <li><textarea id="create-isbn" type="text" placeholder="Description" required></textarea></li>
+            <li><textarea id="create-description" type="text" placeholder="Description" required></textarea></li>
             <li><input id="create-submit" type="submit" value="Submit"></li>
         </ul>  
     </form>
@@ -61,10 +62,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-list-page.js"></script>
     <script src="scripts/views/book-detail-page.js"></script>
     <script src="scripts/views/book-create-page.js"></script>
-    <script src="scripts/models/book.js"></script>
     <script src="scripts/controlers/routes.js"></script>
 </body>
 </html>
