@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <link rel="stylesheet" href="styles/icons.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,24 +19,24 @@
     </script>
 </head>
 <body>
-
-    <nav>
-        <ul id="nav">
-            <li>
-                <a href="/"> Book List Home</a>
-            </li>
-            <li>
-                <a href="/books/new">Add a Book</a>
-            </li>
-        </ul>
-    </nav>
+    <section class="main-nav clearfix">
+        <span class="icon-menu">
+        <nav>
+            <ul id="nav">
+                <li><a href="/"> Book List Home</a></li>
+                <li><a href="/books/new">Add a Book</a></li>
+            </ul>
+        </nav>
+        </span>
+    </section>
 
 <section id="book-list-page" class="page">
         <h1>Book List</h1>
-        <ul id="book-list">
-        </ul>
+        <section id="book-list">
+        </section>
         <h2 id="book-count"></h2>
 </section>
+
 <section id="book-detail-page" class="page">Book Detail
     <h2 id="book-title"></h2>
     <h3 id="book-author"></h3>
