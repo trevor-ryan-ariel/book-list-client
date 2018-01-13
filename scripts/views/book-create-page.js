@@ -10,7 +10,7 @@ var app = app || {};
     $view.show();
   }
 
-  $('#book-create').on('click', app.Book.create)
+  //$('#book-create').on('click', app.Book.create)
 
   module.bookCreatePage = bookCreatePage
 
