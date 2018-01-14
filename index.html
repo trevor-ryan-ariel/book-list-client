@@ -25,6 +25,7 @@
             <ul id="nav">
                 <li><a href="/"> Book List Home</a></li>
                 <li><a href="/books/new">Add a Book</a></li>
+                <li><a href="/admin">Login</a></li>
             </ul>
         </nav>
         </span>
@@ -43,8 +44,8 @@
     <img id="book-image">
     <p id="book-isbn"></p>
     <p id="book-description"></p>
-    <button id="delete" data-id="" value="Delete">Delete</button>
-    <button id="update" data-id="" value="Update">Update</button>
+    <button class="protected" id="delete" data-id="" value="Delete">Delete</button>
+    <button class="protected" id="update" data-id="" value="Update">Update</button>
 </section>
 
 <section id="book-create-page" class="page">
@@ -75,6 +76,12 @@
     </form>
 </section>
 
+<section id="admin-page" class="page">Admin
+    <form id="login" action="submit">
+        <input id="pass" type="text" placeholder="pass phrase">
+    </form>
+</section>
+
 <section id="error-page" class="page">
     <h1 id="error-message">Errors</h1>
 </section>
@@ -83,6 +90,7 @@
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="scripts/models/book.js"></script>
+    <script src="scripts/views/admin-page.js"></script>
     <script src="scripts/views/book-list-page.js"></script>
     <script src="scripts/views/book-detail-page.js"></script>
     <script src="scripts/views/book-create-page.js"></script>
