@@ -12,6 +12,7 @@ var app = app || {};
     $('#update').attr('data-id', book.book_id)
     $('#book-detail-page').show()
     $('#update').on('click', app.bookUpdatePage.init)
+    $('#delete').on('click', () => app.Book.destroy(book.book_id))
   }
 
   module.bookDetailsPage = bookDetailsPage

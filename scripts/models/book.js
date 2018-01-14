@@ -1,6 +1,3 @@
-
-
-
 var app = app || {};
 
 (module => {
@@ -10,7 +7,7 @@ var app = app || {};
   const __API_URL__ = 'http://localhost:3000/api/v1/books'
 
   function Book(newBook) {
-    Object.keys(newBook).forEach(key => this[key]= newBook[key])
+    Object.keys(newBook).forEach(key => this[key] = newBook[key])
   }
 
   Book.all = []
@@ -20,7 +17,7 @@ var app = app || {};
   Book.fetchOne = (id) => $.getJSON(__API_URL__ + '/' + id)
 
   Book.create = event => {
-    var addBook = new Book ({
+    var addBook = new Book({
       title: $('#create-title').val(),
       author: $('#create-author').val(),
       image_url: $('#create-url').val(),
@@ -32,23 +29,33 @@ var app = app || {};
   }
 
   Book.update = event => {
-    var updateBook = new Book ({
-      
+    var updateBook = new Book({
+
       title: $('#update-title').val(),
       author: $('#update-author').val(),
       image_url: $('#update-url').val(),
       isbn: $('#update-isbn').val(),
       description: $('#update-description').val(),
       book_id: parseInt($('#update').data('id'))
-    
     })
-    console.log('this is the book update ', updateBook)
     event.preventDefault();
     return $.ajax({
       url: __API_URL__ + '/' + event.book_id,
       method: 'PUT',
       data: updateBook
     })
+      .then(status => console.log(status))
+      .catch(err => console.log(err));
+  }
+
+  Book.destroy = id => {
+    console.log(id)
+    return $.ajax({
+      url: __API_URL__ + '/' + id,
+      method: 'DELETE',
+    })
+      .then(() => console.log('deleted'))
+      .catch(err => console.log(err));
   }
 
   module.Book = Book
