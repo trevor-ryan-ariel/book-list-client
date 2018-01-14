@@ -31,11 +31,23 @@ var app = app || {};
     return $.post(__API_URL__, addBook).catch(err => console.log(err));
   }
 
-  Book.update = book => {
+  Book.update = event => {
+    var updateBook = new Book ({
+      
+      title: $('#update-title').val(),
+      author: $('#update-author').val(),
+      image_url: $('#update-url').val(),
+      isbn: $('#update-isbn').val(),
+      description: $('#update-description').val(),
+      book_id: parseInt($('#update').data('id'))
+    
+    })
+    console.log('this is the book update ', updateBook)
+    event.preventDefault();
     return $.ajax({
-      url: __API_URL__ + '/' + book.book_id,
+      url: __API_URL__ + '/' + event.book_id,
       method: 'PUT',
-      data: book
+      data: updateBook
     })
   }
 
