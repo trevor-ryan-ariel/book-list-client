@@ -1,6 +1,3 @@
-// page('/*', ()) //do something to all
-// $(document).ready = () => {      can use if you want
-// }
 
 page('/*', (ctx, next) => {
   $('.page').hide();
@@ -15,6 +12,10 @@ page('/', () => {
 
 page('/books/new', () => {
   app.bookCreatePage.init()
+})
+
+page('/admin', () => {
+  app.adminView.initAdminPage()
 })
 
 page('/books/:id', (ctx) => {
